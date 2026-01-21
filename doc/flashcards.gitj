@@ -73,6 +73,19 @@
       "status": "Done",
       "author": "DavidSottasLeBarbare1",
       "patch": true
+    },
+    {
+      "id": "9478d5d7-8679-477f-857f-e6d26f737adb",
+      "type": "commitpatch",
+      "sha": "9782a7072e9fa13e4473deacfd75617aa57bf8d4",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/9782a7072e9fa13e4473deacfd75617aa57bf8d4",
+      "name": "feat(app-teacher): finished step 8",
+      "description": "J'avais une erreur fatale par rapport à l'installation du package i28n.",
+      "date": "2026-01-21T15:06:00.000Z",
+      "duration": 85,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }
