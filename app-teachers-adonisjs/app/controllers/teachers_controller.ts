@@ -1,4 +1,6 @@
+import Section from '#models/section'
 import Teacher from '#models/teacher'
+import { teacherValidator } from '#validators/teacher'
 import type { HttpContext } from '@adonisjs/core/http'
 import { dd } from '@adonisjs/core/services/dumper'
 export default class TeachersController {
@@ -14,24 +16,49 @@ export default class TeachersController {
     return view.render('pages/home', { teachers })
   }
   /**
- * Afficher les détails d'un enseignant (y compris le nom de sa section)
- */
-async show({ params, view }: HttpContext) {
- // Sélectionner l'enseignant dont on veut afficher les détails
- const teacher = await Teacher.query().where('id',
-params.id).preload('section').firstOrFail()
- // Afficher la vue
- return view.render('pages/teachers/show.edge', { title: "Détail d'un enseignant", teacher })
-}
+   * Afficher les détails d'un enseignant (y compris le nom de sa section)
+   */
+  async show({ params, view }: HttpContext) {
+    // Sélectionner l'enseignant dont on veut afficher les détails
+    const teacher = await Teacher.query().where('id', params.id).preload('section').firstOrFail()
+    // Afficher la vue
+    return view.render('pages/teachers/show.edge', { title: "Détail d'un enseignant", teacher })
+  }
 
   /**
-   * Display form to create a new record
+   * Afficher le formulaire pour créer un nouvel enseignant
    */
-  async create({}: HttpContext) {}
+  async create({ view }: HttpContext) {
+    // Récupération des sections triées par le nom
+    const sections = await Section.query().orderBy('name', 'asc')
+    // Appel de la vue
+    return view.render('pages/teachers/create', { title: "Ajout d'un enseignant", sections })
+  }
   /**
-   * Handle form submission for the create action
+   * Gérer la soumission du formulaire pour la création d'un enseignant
    */
-  async store({ request }: HttpContext) {}
+  async store({ request, session, response }: HttpContext) {
+    // Validation des données saisies par l'utilisateur
+    const { gender, firstname, lastname, nickname, origine, sectionId } =
+      await request.validateUsing(teacherValidator)
+    // Création du nouvel enseignant
+    const teacher = await Teacher.create({
+      gender,
+      firstname,
+      lastname,
+      nickname,
+      origine,
+      sectionId,
+    })
+    // Afficher un message à l'utilisateur
+    session.flash(
+      'success',
+      `Le nouvel enseignant ${teacher.lastname}
+${teacher.firstname} a été ajouté avec succès !`
+    )
+    // Rediriger vers la homepage
+    return response.redirect().toRoute('home')
+  }
   /**
    * Edit individual record
    */
@@ -39,18 +66,21 @@ params.id).preload('section').firstOrFail()
   /**
    * Handle form submission for the edit action
    */
-  //async update({ params, request }: HttpContext) {}
+  async update({ params, request }: HttpContext) {}
   /**
- * Supprimer un enseignant
- */
-async destroy({ params, session, response }: HttpContext) {
- // Sélectionne l'enseignant à supprimer
- const teacher = await Teacher.findOrFail(params.id)
- // Supprime l'enseignant
- await teacher.delete()
- // Afficher un message à l'utilisateur
- session.flash( 'success', `L'enseignant ${teacher.lastname} ${teacher.firstname} a été supprimé avec succès !` )
- // Redirige l'utilisateur sur la home
- return response.redirect().toRoute('home')
-}
+   * Supprimer un enseignant
+   */
+  async destroy({ params, session, response }: HttpContext) {
+    // Sélectionne l'enseignant à supprimer
+    const teacher = await Teacher.findOrFail(params.id)
+    // Supprime l'enseignant
+    await teacher.delete()
+    // Afficher un message à l'utilisateur
+    session.flash(
+      'success',
+      `L'enseignant ${teacher.lastname} ${teacher.firstname} a été supprimé avec succès !`
+    )
+    // Redirige l'utilisateur sur la home
+    return response.redirect().toRoute('home')
+  }
 }

@@ -34,6 +34,45 @@
       "duration": 15,
       "status": "Done",
       "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "dccacb96-46da-4187-9024-febc93bd56bd",
+      "type": "commitpatch",
+      "sha": "b5be22e1b28d735ae00b097186c22341da3cd645",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/b5be22e1b28d735ae00b097186c22341da3cd645",
+      "name": "feat(app-teacher): finished step 6",
+      "description": "",
+      "date": "2026-01-21T13:44",
+      "duration": 25,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
+    },
+    {
+      "id": "d0c74486-b256-4b72-9c28-31e0c0bf8b90",
+      "type": "commitpatch",
+      "sha": "0a0c9cc9acfea919a107f1cfb583c5254b665fb8",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/0a0c9cc9acfea919a107f1cfb583c5254b665fb8",
+      "name": "feat(app-teacher): finished step 7",
+      "description": "",
+      "date": "2026-01-21T13:15:00.000Z",
+      "duration": 30,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
+    },
+    {
+      "id": "b553f369-7ea2-42f9-aee1-017e3a073f03",
+      "type": "commitpatch",
+      "sha": "fd7e2c441a9cbf8a4841c300d22572adbb478e34",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/fd7e2c441a9cbf8a4841c300d22572adbb478e34",
+      "name": "feat(app-teacher): finished step 5",
+      "description": "Une erreur par rapport au .query mais qui ne dérange pas le résultat m'a pris du temps à essayer de fixer pour rien",
+      "date": "2026-01-21T12:18:00.000Z",
+      "duration": 45,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }
