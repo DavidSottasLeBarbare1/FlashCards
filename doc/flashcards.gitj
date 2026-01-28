@@ -80,12 +80,55 @@
       "sha": "9782a7072e9fa13e4473deacfd75617aa57bf8d4",
       "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/9782a7072e9fa13e4473deacfd75617aa57bf8d4",
       "name": "feat(app-teacher): finished step 8",
-      "description": "J'avais une erreur fatale par rapport à l'installation du package i28n.",
-      "date": "2026-01-21T15:06:00.000Z",
+      "description": "J'avais une erreur fatale par rapport à l'installation du package i28n. Le professeur est venu pour le fixer.",
+      "date": "2026-01-21T16:06",
       "duration": 85,
       "status": "Done",
       "author": "DavidSottasLeBarbare1",
       "patch": true
+    },
+    {
+      "id": "3a710243-0357-4510-980b-ddd3c845fb95",
+      "type": "commitpatch",
+      "sha": "c46c445bb4d92ac77f19c8070fdb897568ab707c",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/c46c445bb4d92ac77f19c8070fdb897568ab707c",
+      "name": "feat(app-teacher): finished step 9",
+      "description": "",
+      "date": "2026-01-21T16:18",
+      "duration": 10,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
+    },
+    {
+      "id": "8af94f15-bb07-44f0-8407-bb97f1f6a129",
+      "type": "commitless",
+      "name": "Aide des camarades",
+      "description": "J'ai aider les autre élèves qui nécessitaient de l'aide",
+      "date": "2026-01-21T15:29:00.000Z",
+      "duration": 20,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "e1400003-9323-4aa2-af76-0e7cf3b6f71c",
+      "type": "commitless",
+      "name": "Prof",
+      "description": "Le prof à parler de l'avancé des projets et m'a dit de faire ",
+      "date": "2026-01-28T11:35:00.000Z",
+      "duration": 15,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "1f7e9fc0-147c-43b4-a3e6-ed5f251fb9a5",
+      "type": "commitless",
+      "name": "Peer developping",
+      "description": "J'ai aider mes camarades de classe qui étaient en retard",
+      "date": "2026-01-28T12:58:00.000Z",
+      "duration": 80,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
     }
   ]
 }

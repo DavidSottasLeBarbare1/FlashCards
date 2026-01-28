@@ -20,20 +20,20 @@
     </p>
     <div class="actions">
       <a href="{{ route('teacher.edit', {id: teacher.id}) }}">
- <img height="20em" src="/img/edit.png" alt="edit" />
-</a>
+        <img height="20em" src="/img/edit.png" alt="edit" />
+      </a>
 
       <form
-              action="{{ route('teacher.destroy', { id: teacher.id }) }}?_method=DELETE"
-              method="POST"
-              style="display: inline"
-            >
-              {{ csrfField() }}
+        action="{{ route('teacher.destroy', { id: teacher.id }) }}?_method=DELETE"
+        method="POST"
+        style="display: inline"
+      >
+        {{ csrfField() }}
             <button type="submit" style="background: none; border: none;
             padding: 0; cursor: pointer;">
-            <img height="20em" src="/img/delete.png" alt="delete" />
-            </button>
-            </form>
+          <img height="20em" src="/img/delete.png" alt="delete" />
+        </button>
+      </form>
     </div>
   </div>
   <div class="user-body">
