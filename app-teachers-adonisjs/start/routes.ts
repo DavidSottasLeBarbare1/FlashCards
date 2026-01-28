@@ -24,3 +24,5 @@ router.put('/teacher/:id/update', [TeachersController,
 router.get('/section/add', [SectionsController, 'create']).as('section.create')
 // Route permettant l'ajout de l'enseignant
 router.post('/section/add', [SectionsController, 'store']).as('section.store')
+router.get('/sections/show', [SectionsController, 'index']).as('section.view')
+router.delete('/sections/:id/destroy', [SectionsController,'destroy']).as('section.destroy')
