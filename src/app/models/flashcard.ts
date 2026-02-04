@@ -14,8 +14,7 @@ export default class Flashcard extends BaseModel {
   declare answer: String
 
   @column()
-  declare sectionId: number
-
+  declare deckId: number
   @belongsTo(() => Deck)
-  declare section: BelongsTo<typeof Deck>
+  declare deck: BelongsTo<typeof Deck>
 }

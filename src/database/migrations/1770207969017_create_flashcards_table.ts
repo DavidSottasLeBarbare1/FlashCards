@@ -12,6 +12,15 @@ export default class extends BaseSchema {
 
       //Answer field
       table.string('answer').notNullable()
+
+      // deck's foreign key
+      table
+        .integer('deck_id') // Foreign key
+        .unsigned() // Cant be negative
+        .references('id') // Reference id
+        .inTable('decks')
+        .onDelete('CASCADE')
+        .onUpdate('CASCADE')
     })
   }
 
