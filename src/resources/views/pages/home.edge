@@ -2,4 +2,34 @@
   <h1>
     Mes decks
   </h1>
-@endcomponent
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Titre
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Cartes
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @each ((deck, index) in decks)
+        <tr>
+          <td>
+            <strong>{{ deck.title }}</strong>
+          </td>
+          <td>
+            {{ deck.description }}
+          </td>
+          <td>
+            0
+          </td>
+        @end
+      </tbody>
+    </table>
+    <button class="btn">Ajouter</button>
+  @endcomponent
