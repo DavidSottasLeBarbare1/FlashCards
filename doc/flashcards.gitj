@@ -29,8 +29,8 @@
       "id": "8f4c07a7-16b7-4279-b844-0645cad6864d",
       "type": "commitless",
       "name": "Prof",
-      "description": "J'ai écouter le prof parler",
-      "date": "2026-01-21T11:40:00.000Z",
+      "description": "La prof a fait un recap et nous a montrer la nouvelle façon d'évaluer les projets",
+      "date": "2026-01-21T12:40",
       "duration": 15,
       "status": "Done",
       "author": "DavidSottasLeBarbare1"
@@ -80,12 +80,108 @@
       "sha": "9782a7072e9fa13e4473deacfd75617aa57bf8d4",
       "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/9782a7072e9fa13e4473deacfd75617aa57bf8d4",
       "name": "feat(app-teacher): finished step 8",
-      "description": "J'avais une erreur fatale par rapport à l'installation du package i28n.",
-      "date": "2026-01-21T15:06:00.000Z",
+      "description": "J'avais une erreur fatale par rapport à l'installation du package i28n. Le professeur est venu pour le fixer.",
+      "date": "2026-01-21T16:06",
       "duration": 85,
       "status": "Done",
       "author": "DavidSottasLeBarbare1",
       "patch": true
+    },
+    {
+      "id": "3a710243-0357-4510-980b-ddd3c845fb95",
+      "type": "commitpatch",
+      "sha": "c46c445bb4d92ac77f19c8070fdb897568ab707c",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/c46c445bb4d92ac77f19c8070fdb897568ab707c",
+      "name": "feat(app-teacher): finished step 9",
+      "description": "",
+      "date": "2026-01-21T16:18",
+      "duration": 10,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
+    },
+    {
+      "id": "8af94f15-bb07-44f0-8407-bb97f1f6a129",
+      "type": "commitless",
+      "name": "Aide des camarades",
+      "description": "J'ai aider les autre élèves qui nécessitaient de l'aide",
+      "date": "2026-01-21T15:29:00.000Z",
+      "duration": 20,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "e1400003-9323-4aa2-af76-0e7cf3b6f71c",
+      "type": "commitless",
+      "name": "Prof",
+      "description": "Le prof à parler de l'avancé des projets et m'a dit de faire ",
+      "date": "2026-01-28T11:35:00.000Z",
+      "duration": 15,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "1f7e9fc0-147c-43b4-a3e6-ed5f251fb9a5",
+      "type": "commitless",
+      "name": "Peer developping",
+      "description": "J'ai aider mes camarades de classe qui étaient en retard",
+      "date": "2026-01-28T12:58:00.000Z",
+      "duration": 80,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "60e553b2-3767-447a-b633-7069b1d39d78",
+      "type": "commitless",
+      "name": "Prof",
+      "description": "Le prof à fait un cours d'explication aux personnes en difficultées. Il a mentionné les modèles, migration, views etc...",
+      "date": "2026-01-28T16:05",
+      "duration": 40,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "0746e48f-5c43-4478-b325-97a720f73c0c",
+      "type": "commitless",
+      "name": "feat(TF): added sections creation",
+      "description": "",
+      "date": "2026-01-28T13:00:00.000Z",
+      "duration": 30,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "10f95abe-2317-4010-b004-a365056cf477",
+      "type": "commitless",
+      "name": "feat(TF): added section deleting and the show page to see every section",
+      "description": "",
+      "date": "2026-01-28T13:56:00.000Z",
+      "duration": 25,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "3385da1d-44fc-4bb3-9781-24a563e9c92c",
+      "type": "commitpatch",
+      "sha": "9a5325b7e9d06a161dd6320e877107288e751df0",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/9a5325b7e9d06a161dd6320e877107288e751df0",
+      "name": "feat(Components.txt): started a text file to stock the required components for the project",
+      "description": "",
+      "date": "2026-01-28T15:33:00.000Z",
+      "duration": 30,
+      "status": "WIP",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
+    },
+    {
+      "id": "d7708855-eca4-4b15-a707-0ba171620726",
+      "type": "commitless",
+      "name": "Prof",
+      "description": "Le prof a fait le corrigé du test formatif tout en nous expliquant des partis du model mvc",
+      "date": "2026-02-04T12:03:00.000Z",
+      "duration": 43,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
     }
   ]
 }
