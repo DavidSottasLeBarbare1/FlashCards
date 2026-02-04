@@ -182,6 +182,19 @@
       "duration": 43,
       "status": "Done",
       "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "e2248618-1dc0-46c3-9483-6cd23a6ecd6c",
+      "type": "commitpatch",
+      "sha": "6e0a609e46ded602e3a672660bdf6a0a40d27976",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/6e0a609e46ded602e3a672660bdf6a0a40d27976",
+      "name": "feat(FlashCards): added the main elements to connect to the database",
+      "description": "Cette tâche m'a pris un peu plus de temps que prévu car je n'ai pas penser de changer le port de mon .env",
+      "date": "2026-02-04T13:09:00.000Z",
+      "duration": 66,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }
