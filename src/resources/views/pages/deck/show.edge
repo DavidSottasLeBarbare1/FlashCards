@@ -1,0 +1,40 @@
+@component('components/layout', { title: 'Deck - Capitales' })
+  
+  <div class="deck-header">
+    <div class="deck-header-top">
+      <div class="deck-info">
+        <h1>Capitales</h1>
+        <p>Les capitales de tous les pays du monde</p>
+      </div>
+      <div class="deck-actions">
+        <button class="btn-icon btn-exercise">Exercer</button>
+        <button class="btn-icon">Modifier</button>
+        <button class="btn-icon btn-danger">Supprimer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="cards-section">
+    <div class="cards-header">
+      <h2>Cartes du deck</h2>
+      <button class="btn-icon">Ajouter une carte</button>
+    </div>
+
+    <div class="cards-list">
+      <div class="card-item">
+        <div class="card-item-question">Canada</div>
+        <div class="card-item-answer">Ottawa</div>
+      </div>
+
+      <div class="card-item">
+        <div class="card-item-question">Australie</div>
+        <div class="card-item-answer">Canberra</div>
+      </div>
+
+      <div class="card-item">
+        <div class="card-item-question">Japon</div>
+        <div class="card-item-answer">Tokyo</div>
+      </div>
+    </div>
+</div>
+@endcomponent

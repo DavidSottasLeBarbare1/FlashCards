@@ -12,25 +12,37 @@ export default class DecksController {
   }
 
   async store({ request, session, response }: HttpContext) {
-    // Validation des données saisies par l'utilisateur
+    // Validate user entered data
     const { title, description } = await request.validateUsing(deckValidator)
-    // Création de la nouvelle section
+
+    // New deck creation
     const deck = await Deck.create({
       title, description,
     })
-    // Afficher un message à l'utilisateur
+
+    // Flashing message
     session.flash(
       'success',
       `Le nouveau deck ${deck.title} a été ajouté avec succès !`
     )
-    // Rediriger sur la section.view
+
+    // Redirecting to home
     return response.redirect().toRoute('home')
   }
 
   async create({ view }: HttpContext) {
 
     const deck = await Deck.query().orderBy('title', 'asc')
-    // Appel de la vue
+    
+    // View calling
     return view.render('pages/deck/create', { title: "Ajout d'un deck", deck})
+  }
+
+  async show({ params, view }: HttpContext) {
+
+    const deck = await Deck.query().where('id', params.id).firstOrFail()
+    
+    // View calling
+    return view.render('pages/deck/show', { title: "Detail d'un deck", deck})
   }
 }

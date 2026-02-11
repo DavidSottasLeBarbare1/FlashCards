@@ -14,3 +14,4 @@ router.get('/', [DecksController, 'index']).as('home')
 router.get('/deck/add', [DecksController, 'create']).as('deck.create')
 
 router.post('/deck/add', [DecksController, 'store']).as('deck.store')
+router.get('/deck/:id/show.edge', [DecksController, 'show']).as('deck.show')

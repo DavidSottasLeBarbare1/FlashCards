@@ -3,13 +3,13 @@
   
   <div class="decks-grid">
     @each ((deck, index) in decks)
-      <div class="deck-card">
+      <a href="{{ route('deck.show', { id: deck.id }) }}" class="deck-card">
         <h2 class="deck-card-title">{{ deck.title }}</h2>
         <p class="deck-card-description">{{ deck.description }}</p>
         <div class="deck-card-footer">
           <span class="deck-card-count">0 cartes</span>
         </div>
-      </div>
+      </a>
     @end
   </div>
   
