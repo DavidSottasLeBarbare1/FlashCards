@@ -1,0 +1,59 @@
+@component('components/layout', { title: 'Nouvelle carte' })
+  
+  <div class="card-form-container">
+    <div class="card-form-header">
+      <h1>Nouvelle carte pour le deck "Capitales"</h1>
+      <p class="card-form-subtitle">Créez une carte avec une question au recto et sa réponse au verso</p>
+    </div>
+
+    <div class="card-preview-section">
+      <div class="card-preview-label">Prévisualisation</div>
+      <div class="flashcard-preview">
+        <span class="flashcard-side-label">Recto</span>
+        <div class="flashcard-content">
+          <div class="flashcard-text flashcard-placeholder">
+            Votre question apparaîtra ici
+          </div>
+        </div>
+      </div>
+      <div class="flip-hint">Cliquez sur la carte pour voir le verso</div>
+    </div>
+
+    <form>
+      <div class="card-form-fields">
+        <div class="form-group card-side">
+          <label for="question">
+            Question
+            <span class="side-indicator recto">Recto</span>
+          </label>
+          <textarea 
+            id="question" 
+            name="question" 
+            placeholder="Ex: Quelle est la capitale du Canada ?"
+            required
+          ></textarea>
+          <small class="character-count">0 / 10 caractères minimum</small>
+        </div>
+
+        <div class="form-group card-side">
+          <label for="answer">
+            Réponse
+            <span class="side-indicator verso">Verso</span>
+          </label>
+          <textarea 
+            id="answer" 
+            name="answer" 
+            placeholder="Ex: Ottawa"
+            required
+          ></textarea>
+          <small class="character-count">0 caractères</small>
+          <small>Cette réponse sera affichée au verso de la carte</small>
+        </div>
+      </div>
+      <div class="form-actions">
+       
+        <button type="submit" class="btn btn-primary">Ajouter la carte</button>
+      </div>
+    </form>
+  </div>
+@endcomponent
