@@ -565,7 +565,7 @@ label {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -607,4 +607,223 @@ label {
   width: auto;
   padding: 0.75rem 1.5rem;
   height: auto;
+}
+
+/* Page de création de carte */
+.card-form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+}
+
+.card-form-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-form-header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.card-form-subtitle {
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Prévisualisation de carte */
+.card-preview-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #fafafa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.card-preview-label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.flashcard-preview {
+  background: white;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.flashcard-preview:hover {
+  transform: rotateY(5deg);
+}
+
+.flashcard-content {
+  width: 100%;
+}
+
+.flashcard-side-label {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flashcard-text {
+  font-size: 1.5rem;
+  color: #333;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.flashcard-placeholder {
+  color: #ccc;
+  font-style: italic;
+}
+
+.flip-hint {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+/* Formulaire de carte */
+.card-form-fields {
+  margin-bottom: 2rem;
+}
+
+.form-group.card-side {
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.form-group.card-side label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.75rem;
+}
+
+.side-indicator {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.side-indicator.recto {
+  background: #333;
+}
+
+.side-indicator.verso {
+  background: #666;
+}
+
+.form-group.card-side textarea {
+  min-height: 100px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.character-count {
+  display: block;
+  text-align: right;
+  margin-top: 0.5rem;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.character-count.warning {
+  color: #ff9800;
+}
+
+.character-count.error {
+  color: #d32f2f;
+}
+
+/* Aide contextuelle */
+.help-box {
+  background: #f0f7ff;
+  border: 1px solid #bbdefb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.help-box-title {
+  font-weight: 600;
+  color: #1976d2;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.help-box-text {
+  margin: 0;
+  color: #555;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* État de validation */
+.form-validation-summary {
+  background: #fff3e0;
+  border: 1px solid #ffe0b2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: none;
+}
+
+.form-validation-summary.show {
+  display: block;
+}
+
+.validation-title {
+  font-weight: 600;
+  color: #f57c00;
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.validation-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.validation-list li {
+  margin-bottom: 0.25rem;
 }
