@@ -1,35 +1,17 @@
 @component('components/layout', { title: 'Accueil' })
-  <h1>
-    Mes decks
-  </h1>
-  <table>
-    <thead>
-      <tr>
-        <th>
-          Titre
-        </th>
-        <th>
-          Description
-        </th>
-        <th>
-          Cartes
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      @each ((deck, index) in decks)
-        <tr>
-          <td>
-            <strong>{{ deck.title }}</strong>
-          </td>
-          <td>
-            {{ deck.description }}
-          </td>
-          <td>
-            0
-          </td>
-        @end
-      </tbody>
-    </table>
-    <button class="btn">Ajouter</button>
-  @endcomponent
+  <h1>Mes decks</h1>
+  
+  <div class="decks-grid">
+    @each ((deck, index) in decks)
+      <div class="deck-card">
+        <h2 class="deck-card-title">{{ deck.title }}</h2>
+        <p class="deck-card-description">{{ deck.description }}</p>
+        <div class="deck-card-footer">
+          <span class="deck-card-count">0 cartes</span>
+        </div>
+      </div>
+    @end
+  </div>
+  
+  <button class="btn">Ajouter un deck</button>
+@endcomponent

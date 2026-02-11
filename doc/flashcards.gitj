@@ -205,6 +205,19 @@
       "duration": 33,
       "status": "Done",
       "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "344d9247-1d8f-4651-9c24-ec44649a69d4",
+      "type": "commitpatch",
+      "sha": "a3f6f39d228498ab9af480b568131eb40e52fab0",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/a3f6f39d228498ab9af480b568131eb40e52fab0",
+      "name": "feat(FlashCards): added decks to home.edge",
+      "description": "",
+      "date": "2026-02-04T14:43:00.000Z",
+      "duration": 11,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }
