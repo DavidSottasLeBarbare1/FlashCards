@@ -32,6 +32,7 @@ export default class DecksController {
 
   async create({ view }: HttpContext) {
 
+    //Finds the deck to create
     const deck = await Deck.query().orderBy('title', 'asc')
     
     // View calling
@@ -40,9 +41,27 @@ export default class DecksController {
 
   async show({ params, view }: HttpContext) {
 
+    //Findes the deck to show
     const deck = await Deck.query().where('id', params.id).firstOrFail()
     
     // View calling
     return view.render('pages/deck/show', { title: "Detail d'un deck", deck})
+  }
+
+  async destroy({ params, session, response }: HttpContext) {
+
+        // Finds the deck to delete
+        const deck = await Deck.findOrFail(params.id)
+
+        // Deletes the deck
+        await deck.delete()
+
+        // Flashing message
+        session.flash(
+          'success',
+          `Le deck ${deck.title} a été supprimé avec succès !`
+        )
+        // Redirecting back to home
+        return response.redirect().toRoute('home')
   }
 }
