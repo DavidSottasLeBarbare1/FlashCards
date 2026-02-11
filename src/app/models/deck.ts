@@ -6,8 +6,8 @@ export default class Deck extends BaseModel {
   declare id: number
 
   @column()
-  declare title: String
+  declare title: string
 
   @column()
-  declare description: String
+  declare description: string
 }
