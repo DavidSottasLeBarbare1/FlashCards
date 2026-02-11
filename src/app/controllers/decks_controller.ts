@@ -64,4 +64,39 @@ export default class DecksController {
         // Redirecting back to home
         return response.redirect().toRoute('home')
   }
+
+  async edit({ params, view }: HttpContext) {
+    // Sélectionner l'enseignant dont on veut mettre à jour des informations
+    const deck = await Deck.findOrFail(params.id)
+
+    // Afficher la vue
+    return view.render('pages/deck/edit.edge', {
+      title: 'Modifier un deck',
+      deck,
+    })
+  }
+
+  async update({ params, request, session, response }: HttpContext) {
+    // Validation des données saisies par l'utilisateur
+    const { title, description } =
+      await request.validateUsing(deckValidator)
+    // Sélectionner l'enseignant dont on veut mettre à jour des informations
+    const deck = await Deck.findOrFail(params.id)
+
+    // Met à jour les infos de l'enseignant
+    deck.merge({
+      title,
+      description
+    })
+
+    const deckUpdated = await deck.save()
+    // Afficher un message à l'utilisateur
+    session.flash(
+      'success',
+      `Le deck ${deckUpdated.title} a été
+mis à jour avec succès !`
+    )
+    // Redirige l'utilisateur sur la home
+    return response.redirect().toRoute('deck.show', {id: deck.id})
+  }
 }

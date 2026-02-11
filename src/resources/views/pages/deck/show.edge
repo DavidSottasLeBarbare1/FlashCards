@@ -7,12 +7,12 @@
           {{ deck.title }}
         </h1>
         <p>
-          Les capitales de tous les pays du monde
+          {{ deck.description }}
         </p>
       </div>
       <div class="deck-actions">
         <button class="btn-icon btn-exercise">Exercer</button>
-        <button class="btn-icon">Modifier</button>
+        <a href="{{ route('deck.edit', {id: deck.id}) }}" class="btn-icon">Modifier</a>
         <form action="{{ route('deck.destroy', { id: deck.id }) }}?_method=DELETE" method="POST">
           {{ csrfField() }}
         <button type="submit" class="btn-icon btn-danger">
