@@ -9,4 +9,11 @@ export default class DecksController {
 
     return view.render('pages/home', { decks })
   }
+   async store({ request, session, response }: HttpContext) {
+    // Retrieve the list of decks
+    const decks = await Deck.query()
+
+    return response.redirect().toRoute('home')
+  }
+  
 }

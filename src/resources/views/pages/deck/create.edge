@@ -1,0 +1,49 @@
+@component('components/layout', { title: 'Créer un deck' })
+  <div class="form-container">
+    <div class="form-header">
+      <h1>Créer un nouveau deck</h1>
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label for="title">Titre du deck</label>
+        <input 
+          type="text" 
+          id="title" 
+          name="title" 
+          placeholder="Ex: Vocabulaire anglais"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea 
+          id="description" 
+          name="description" 
+          placeholder="Décrivez brièvement votre deck..."
+        ></textarea>
+        <small>Facultatif - Ajoutez une description pour mieux organiser vos decks</small>
+      </div>
+
+      <div class="form-group">
+        <label>Visibilité</label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="private" name="visibility" value="private" checked>
+            <label for="private">Privé</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="public" name="visibility" value="public">
+            <label for="public">Public</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary">Annuler</button>
+        <button type="submit" class="btn btn-primary">Créer le deck</button>
+      </div>
+    </form>
+  </div>
+@endcomponent
