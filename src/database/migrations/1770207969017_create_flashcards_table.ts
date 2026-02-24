@@ -21,6 +21,9 @@ export default class extends BaseSchema {
         .inTable('decks')
         .onDelete('CASCADE')
         .onUpdate('CASCADE')
+
+      table.timestamp('created_at').notNullable()
+      table.timestamp('updated_at').nullable()
     })
   }
 

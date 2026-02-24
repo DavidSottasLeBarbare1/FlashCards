@@ -15,6 +15,13 @@ export default class Flashcard extends BaseModel {
 
   @column()
   declare deckId: number
+
   @belongsTo(() => Deck)
   declare deck: BelongsTo<typeof Deck>
+
+  @column.dateTime({ autoCreate: true })
+  declare createdAt: DateTime
+
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  declare updatedAt: DateTime
 }

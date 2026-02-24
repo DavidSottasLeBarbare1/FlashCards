@@ -13,6 +13,8 @@ export default class extends BaseSchema {
       // Description field
       table.string('description')
 
+      table.timestamp('created_at').notNullable()
+      table.timestamp('updated_at').nullable()
     })
   }
 

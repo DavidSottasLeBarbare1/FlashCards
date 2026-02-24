@@ -231,6 +231,19 @@
       "status": "Done",
       "author": "DavidSottasLeBarbare1",
       "patch": true
+    },
+    {
+      "id": "7e438b3d-654e-4908-91d4-1f59f9febe5e",
+      "type": "commitpatch",
+      "sha": "52308fc234198d45819efe804ad6f0e74dedb634",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/52308fc234198d45819efe804ad6f0e74dedb634",
+      "name": "feat(creation): started cards creation",
+      "description": "",
+      "date": "2026-02-11T15:31:00.000Z",
+      "duration": 29,
+      "status": "WIP",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }
