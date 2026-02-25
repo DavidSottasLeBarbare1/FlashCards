@@ -13,10 +13,10 @@
       <div class="deck-actions">
         <button class="btn-icon btn-exercise">Exercer</button>
         <a href="{{ route('deck.edit', {id: deck.id}) }}" class="btn-icon">Modifier</a>
-        <a
+        <button
           class="btn-icon btn-danger"
-          onclick="document.querySelector('.modal-overlay').style.display = 'flex'"
-        >Supprimer</a>
+          onclick="openDeleteModal('{{ route('deck.destroy', { id: deck.id }) }}?_method=DELETE', 'deck')"
+        >Supprimer</button>
       </div>
     </div>
   </div>
@@ -32,44 +32,84 @@
     <div class="cards-list">
       @each(card in cards)
         <div class="card-item">
-          <div class="card-item-question">
-            {{ card.question }}
+          <div class="card-item-content">
+            <div class="card-item-question">
+              {{ card.question }}
+            </div>
+            <div class="card-item-answer">
+              {{ card.answer }}
+            </div>
           </div>
-          <div class="card-item-answer">
-            {{ card.answer }}
+
+          <div class="card-item-actions">
+            <a href="" class="btn-icon">
+              Modifier
+            </a>
+            <button
+              class="btn-icon btn-danger"
+              onclick="openDeleteModal('{{ route('card.destroy', { deckId: deck.id, id: card.id }) }}?_method=DELETE', 'card')"
+            >Supprimer</button>
           </div>
         </div>
       @else
-        <p>
-          Vide
-        </p>
+        <div class="empty-state">
+          <p class="empty-state-text">
+            Ce deck est vide
+          </p>
+        </div>
       @end
-      <div class="modal-overlay">
+      <div class="modal-overlay" id="deleteModal" style="display: none">
         <div class="modal">
           <div class="modal-header">
-            <h3>
+            <h3 id="modalTitle">
               Confirmer la suppression
             </h3>
           </div>
           <div class="modal-body">
-            <p>
-              Voulez-vous vraiment supprimer ce deck ?
+            <p id="modalMessage">
             </p>
           </div>
           <div class="modal-actions">
-            <button
-              class="btn btn-secondary"
-              onclick="document.querySelector('.modal-overlay').style.display = 'none'"
-            >Annuler</button>
-            <form action="{{ route('deck.destroy', { id: deck.id }) }}?_method=DELETE" method="POST">
-              {{ csrfField() }}
-            <button type="submit" class="btn-icon btn-danger">
-                Continuer
+            <button class="btn btn-secondary" onclick="closeDeleteModal()">
+              Annuler
             </button>
+            <form id="deleteForm" action="" method="POST">
+              {{ csrfField() }}
+              <button type="submit" class="btn-icon btn-danger">
+                Continuer
+              </button>
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <script>
+    function openDeleteModal(route, type) {
+      const modal = document.getElementById("deleteModal");
+      const form = document.getElementById("deleteForm");
+      const message = document.getElementById("modalMessage");
+      const title = document.getElementById("modalTitle");
+      form.action = route;
+      if (type === "deck") {
+        title.innerText = "Supprimer le deck";
+        message.innerText = "Voulez-vous vraiment supprimer cet deck ?";
+      } else {
+        title.innerText = "Supprimer la carte";
+        message.innerText = "Voulez-vous vraiment supprimer cette carte ?";
+      }
+      modal.style.display = "flex";
+    }
+
+    function closeDeleteModal() {
+      document.getElementById("deleteModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("deleteModal");
+      if (event.target == modal) {
+        closeDeleteModal();
+      }
+    };
+  </script>
 @endcomponent

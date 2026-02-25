@@ -524,6 +524,9 @@ label {
   padding: 1.25rem;
   transition: all 0.2s ease;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-item:hover {
@@ -531,6 +534,27 @@ label {
   border-color: #ffccd5;
   transform: translateX(4px);
   box-shadow: 0 2px 8px rgba(219, 112, 147, 0.15);
+}
+
+.card-item-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #ffe4e9;
+}
+
+
+.form-delete-card {
+  margin: 0;
+  display: inline-block;
+}
+
+.card-item-actions {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
 }
 
 .card-item-question {
