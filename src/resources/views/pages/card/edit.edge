@@ -1,0 +1,94 @@
+@component('components/layout', { title: 'Nouvelle carte' })
+
+  <div class="card-form-container">
+    <div class="card-form-header">
+      <h1>
+        Nouvelle carte pour le deck {{ deck.title }}
+      </h1>
+      <p class="card-form-subtitle">
+        Créez une carte avec une question au recto et sa réponse au verso
+      </p>
+    </div>
+
+    <div class="card-preview-section">
+  <div class="card-preview-label">Prévisualisation</div>
+  <div class="flashcard-wrapper">
+    <div class="flashcard-preview" id="myFlashcard">
+      <div class="flashcard-face flashcard-front">
+        <span class="flashcard-side-label">Question</span>
+        <div class="flashcard-content">
+          <div class="flashcard-text flashcard-placeholder" id="question-text">
+            Votre question apparaîtra ici
+          </div>
+        </div>
+      </div>
+      <div class="flashcard-face flashcard-back">
+        <span class="flashcard-side-label">Réponse</span>
+        <div class="flashcard-content">
+          <div class="flashcard-text flashcard-placeholder" id="answer-text">
+            Votre réponse apparaîtra ici
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flip-hint">
+    Cliquez sur la carte pour voir le verso
+  </div>
+</div>
+    <form action="{{ route('card.update', { deckId: deck.id, id: card.id }) }}?_method=PUT" method="POST">
+      {{ csrfField() }}
+      <div class="card-form-fields">
+        <div class="form-group card-side">
+          <label for="question">
+            Question
+            <span class="side-indicator recto">Recto</span>
+          </label>
+          <textarea id="question" name="question" placeholder="Ex: Quelle est la capitale du Canada ?" required>{{ old('question') || card.question }}</textarea>
+          <small class="character-count">0 / 10 caractères minimum</small>
+        </div>
+
+        <div class="form-group card-side">
+          <label for="answer">
+            Réponse
+            <span class="side-indicator verso">Verso</span>
+          </label>
+          <textarea id="answer" name="answer" placeholder="Ex: Ottawa" required>{{ old('answer') || card.answer }}</textarea>
+          <small class="character-count">0 caractères</small>
+          <small>Cette réponse sera affichée au verso de la carte</small>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Modifier la carte</button>
+      </div>
+    </form>
+  </div>
+  <script>
+  const flashcard = document.getElementById('myFlashcard');
+
+  flashcard.addEventListener('click', function() {
+    this.classList.toggle('is-flipped');
+  });
+
+  const inputA = document.getElementById('answer');
+  const outputA = document.getElementById('answer-text');
+  const inputQ = document.getElementById('question');
+  const outputQ = document.getElementById('question-text');
+
+  window.addEventListener('load',() => {
+    updateValue(outputQ, inputQ);
+    updateValue(outputA, inputA);
+  });
+
+  inputQ.addEventListener('input',() => {
+    updateValue(outputQ, inputQ);
+  });
+
+  inputA.addEventListener('input', () => {
+    updateValue(outputA, inputA);
+  });
+  function updateValue(output, input) {
+    output.textContent = input.value;
+  }
+</script>
+@endcomponent

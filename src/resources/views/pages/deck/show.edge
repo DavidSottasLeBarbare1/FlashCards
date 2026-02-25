@@ -42,9 +42,7 @@
           </div>
 
           <div class="card-item-actions">
-            <a href="" class="btn-icon">
-              Modifier
-            </a>
+            <a href="{{ route('card.edit', { deckId: deck.id, id: card.id }) }}" class="btn-icon">Modifier</a>
             <button
               class="btn-icon btn-danger"
               onclick="openDeleteModal('{{ route('card.destroy', { deckId: deck.id, id: card.id }) }}?_method=DELETE', 'card')"
