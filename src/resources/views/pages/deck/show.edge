@@ -11,7 +11,7 @@
         </p>
       </div>
       <div class="deck-actions">
-        <button class="btn-icon btn-exercise">Exercer</button>
+        <a href="{{ route('deck.start', {id: deck.id}) }}" class="btn-icon btn-exercise">Exercer</a>
         <a href="{{ route('deck.edit', {id: deck.id}) }}" class="btn-icon">Modifier</a>
         <button
           class="btn-icon btn-danger"

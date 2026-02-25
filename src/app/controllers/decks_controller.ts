@@ -85,6 +85,7 @@ export default class DecksController {
     })
 
     const deckUpdated = await deck.save()
+
     // Flashing message
     session.flash(
       'success',
@@ -93,5 +94,13 @@ mis à jour avec succès !`
     )
     // Redirecting to deck.show
     return response.redirect().toRoute('deck.show', { id: deck.id })
+  }
+
+  async start({ view }: HttpContext) {
+    //Finds the deck to start
+    const deck = await Deck.query().orderBy('title', 'asc')
+
+    // View calling
+    return view.render('pages/deck/start', { title: "Ajout d'un deck", deck })
   }
 }

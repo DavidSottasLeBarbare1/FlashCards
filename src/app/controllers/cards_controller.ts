@@ -4,7 +4,7 @@ import Deck from '#models/deck'
 import { cardValidator } from '#validators/card'
 export default class CardsController {
   async create({ view, params }: HttpContext) {
-    
+
     //Finds the card to create
     const card = await Card.query().orderBy('question', 'asc')
 
@@ -31,7 +31,7 @@ export default class CardsController {
     })
 
     // Flashing message
-    session.flash('success', `La nouveau carte a été ajouté avec succès !`)
+    session.flash('success', `La nouvelle carte a été ajouté avec succès !`)
 
     // Redirecting to deck.show
     return response.redirect().toRoute('deck.show', { id: params.deckId })
@@ -53,6 +53,7 @@ export default class CardsController {
   }
 
   async edit({ params, view }: HttpContext) {
+
     // Finds the card to update
     const card = await Card.findOrFail(params.id)
 
@@ -92,4 +93,6 @@ mis à jour avec succès !`
     // Redirecting to deck.show
     return response.redirect().toRoute('deck.show', { id: params.deckId })
   }
+
+  
 }

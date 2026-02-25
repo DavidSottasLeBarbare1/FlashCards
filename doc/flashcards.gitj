@@ -250,7 +250,7 @@
       "type": "commitless",
       "name": "Scrum meeting",
       "description": "Ce que j'ai fait : voir JDT\r\nCe que je vais faire : Prévisualisation des cartes, nombres de cartes dans les decks et peut-être le CRUD des cartes\r\nProblème : Aucun",
-      "date": "2026-02-25T12:31",
+      "date": "2026-02-25T12:35",
       "duration": 15,
       "status": "Done",
       "author": "DavidSottasLeBarbare1"
@@ -262,7 +262,7 @@
       "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/ed6e4413e08c7d3778a194f666d2ab5ac3b5ee53",
       "name": "feat(card-preview): added card preview using AI made css",
       "description": "L'IA m'a seulement générer le css depuis mon html, cette tâche a donc pris plus de temps car je n'était pas sûr de où placer mon js",
-      "date": "2026-02-25T12:17:00.000Z",
+      "date": "2026-02-25T13:20",
       "duration": 45,
       "status": "Done",
       "author": "DavidSottasLeBarbare1",
