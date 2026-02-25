@@ -663,24 +663,50 @@ label {
   font-weight: 500;
 }
 
+.flashcard-wrapper {
+  perspective: 1000px;
+  width: 100%;
+}
+
 .flashcard-preview {
+  position: relative;
+  min-height: 200px;
+  width: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.flashcard-preview:hover {
+  transform: translateY(-5px);
+}
+
+.flashcard-preview.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: white;
   border-radius: 12px;
-  padding: 3rem 2rem;
-  min-height: 200px;
+  padding: rem 6rem;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   box-shadow: 0 4px 12px rgba(219, 112, 147, 0.15);
   border: 2px solid #ffe4e9;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  position: relative;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; 
 }
 
-.flashcard-preview:hover {
-  transform: rotateY(5deg);
+.flashcard-back {
+  transform: rotateY(180deg);
 }
 
 .flashcard-content {
@@ -702,6 +728,7 @@ label {
   color: #8b4557;
   line-height: 1.6;
   word-wrap: break-word;
+  z-index: 5;
 }
 
 .flashcard-placeholder {
@@ -716,7 +743,6 @@ label {
   color: #999;
 }
 
-/* Formulaire de carte */
 .card-form-fields {
   margin-bottom: 2rem;
 }

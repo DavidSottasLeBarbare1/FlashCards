@@ -63,7 +63,7 @@ export default class DecksController {
     // Finds the deck to update
     const deck = await Deck.findOrFail(params.id)
 
-    // Afficher la vue
+    // View calling
     return view.render('pages/deck/edit.edge', {
       title: 'Modifier un deck',
       deck,

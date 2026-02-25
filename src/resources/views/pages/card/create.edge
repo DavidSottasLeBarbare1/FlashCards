@@ -11,21 +11,31 @@
     </div>
 
     <div class="card-preview-section">
-      <div class="card-preview-label">
-        Prévisualisation
-      </div>
-      <div class="flashcard-preview">
-        <span class="flashcard-side-label">Recto</span>
+  <div class="card-preview-label">Prévisualisation</div>
+  <div class="flashcard-wrapper">
+    <div class="flashcard-preview" id="myFlashcard">
+      <div class="flashcard-face flashcard-front">
+        <span class="flashcard-side-label">Question</span>
         <div class="flashcard-content">
-          <div class="flashcard-text flashcard-placeholder">
+          <div class="flashcard-text flashcard-placeholder" id="question-text">
             Votre question apparaîtra ici
           </div>
         </div>
       </div>
-      <div class="flip-hint">
-        Cliquez sur la carte pour voir le verso
+      <div class="flashcard-face flashcard-back">
+        <span class="flashcard-side-label">Réponse</span>
+        <div class="flashcard-content">
+          <div class="flashcard-text flashcard-placeholder" id="answer-text">
+            Votre réponse apparaîtra ici
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="flip-hint">
+    Cliquez sur la carte pour voir le verso
+  </div>
+</div>
     <form action="{{ route('card.store', { deckId: deckId }) }}" method="POST">
       {{ csrfField() }}
       <div class="card-form-fields">
