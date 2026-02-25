@@ -2,12 +2,14 @@ import Deck from '#models/deck'
 import { deckValidator } from '#validators/deck'
 import type { HttpContext } from '@adonisjs/core/http'
 import Card from '#models/flashcard'
+import db from '@adonisjs/lucid/services/db'
 export default class DecksController {
   // Display the list of decks
   async index({ view }: HttpContext) {
-    // Retrieve the list of decks
-    const decks = await Deck.query()
+    // Retrieve the list of decks and the amount of card in each one
+    const decks = await Deck.query().select('*').select(db.from('flashcards').whereRaw('flashcards.deck_id = decks.id').count('*').as('nbrOfCards'))
 
+    //Counts the number of cards inside the deck
     return view.render('pages/home', { decks })
   }
 

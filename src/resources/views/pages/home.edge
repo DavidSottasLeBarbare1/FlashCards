@@ -7,7 +7,7 @@
         <h2 class="deck-card-title">{{ deck.title }}</h2>
         <p class="deck-card-description">{{ deck.description }}</p>
         <div class="deck-card-footer">
-          <span class="deck-card-count">0 cartes</span>
+          <span class="deck-card-count">Cartes: {{ deck.$extras.nbrOfCards }}</span>
         </div>
       </a>
     @end
