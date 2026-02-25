@@ -244,6 +244,16 @@
       "status": "WIP",
       "author": "DavidSottasLeBarbare1",
       "patch": true
+    },
+    {
+      "id": "577c7d03-d5a6-4ffa-9fc6-3b660ab7dcbe",
+      "type": "commitless",
+      "name": "Scrum meeting",
+      "description": "Ce que j'ai fait : voir JDT\r\nCe que je vais faire : Prévisualisation des cartes, nombres de cartes dans les decks et peut-être bouton exercer le deck\r\nProblème : Aucun",
+      "date": "2026-02-25T11:31:00.000Z",
+      "duration": 15,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
     }
   ]
 }
