@@ -11,31 +11,33 @@
     </div>
 
     <div class="card-preview-section">
-  <div class="card-preview-label">Prévisualisation</div>
-  <div class="flashcard-wrapper">
-    <div class="flashcard-preview" id="myFlashcard">
-      <div class="flashcard-face flashcard-front">
-        <span class="flashcard-side-label">Question</span>
-        <div class="flashcard-content">
-          <div class="flashcard-text flashcard-placeholder" id="question-text">
-            Votre question apparaîtra ici
+      <div class="card-preview-label">
+        Prévisualisation
+      </div>
+      <div class="flashcard-wrapper">
+        <div class="flashcard-preview" id="myFlashcard">
+          <div class="flashcard-face flashcard-front">
+            <span class="flashcard-side-label">Question</span>
+            <div class="flashcard-content">
+              <div class="flashcard-text flashcard-placeholder" id="question-text">
+                Votre question apparaîtra ici
+              </div>
+            </div>
+          </div>
+          <div class="flashcard-face flashcard-back">
+            <span class="flashcard-side-label">Réponse</span>
+            <div class="flashcard-content">
+              <div class="flashcard-text flashcard-placeholder" id="answer-text">
+                Votre réponse apparaîtra ici
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="flashcard-face flashcard-back">
-        <span class="flashcard-side-label">Réponse</span>
-        <div class="flashcard-content">
-          <div class="flashcard-text flashcard-placeholder" id="answer-text">
-            Votre réponse apparaîtra ici
-          </div>
-        </div>
+      <div class="flip-hint">
+        Cliquez sur la carte pour voir le verso
       </div>
     </div>
-  </div>
-  <div class="flip-hint">
-    Cliquez sur la carte pour voir le verso
-  </div>
-</div>
     <form action="{{ route('card.store', { deckId: deckId }) }}" method="POST">
       {{ csrfField() }}
       <div class="card-form-fields">
@@ -59,30 +61,34 @@
         </div>
       </div>
       <div class="form-actions">
-
+        <a href="{{ route('deck.show', { id: deckId }) }}" class="btn btn-secondary">
+          Abandonner
+        </a>
         <button type="submit" class="btn btn-primary">Ajouter la carte</button>
       </div>
     </form>
   </div>
   <script>
-  const flashcard = document.getElementById('myFlashcard');
+    const flashcard = document.getElementById("myFlashcard");
 
-  flashcard.addEventListener('click', function() {
-    this.classList.toggle('is-flipped');
-  });
+    flashcard.addEventListener("click", function() {
+      this.classList.toggle("is-flipped");
+    });
 
-  const inputQ = document.getElementById('question');
-  const outputQ = document.getElementById('question-text');
+    const inputQ = document.getElementById("question");
 
-  inputQ.addEventListener('input', () => {
-    outputQ.textContent = inputQ.value;
-  });
+    const outputQ = document.getElementById("question-text");
 
-  const inputA = document.getElementById('answer');
-  const outputA = document.getElementById('answer-text');
+    inputQ.addEventListener("input", () => {
+      outputQ.textContent = inputQ.value;
+    });
 
-  inputA.addEventListener('input', () => {
-    outputA.textContent = inputA.value;
-  });
-</script>
+    const inputA = document.getElementById("answer");
+
+    const outputA = document.getElementById("answer-text");
+
+    inputA.addEventListener("input", () => {
+      outputA.textContent = inputA.value;
+    });
+  </script>
 @endcomponent
