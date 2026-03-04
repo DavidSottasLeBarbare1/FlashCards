@@ -310,6 +310,19 @@
       "duration": 21,
       "status": "Done",
       "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "8cec73e5-e4c3-44ac-a936-aff6d60836fd",
+      "type": "commitpatch",
+      "sha": "a64f2b821107e25818e8a10f93c75822d799606b",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/a64f2b821107e25818e8a10f93c75822d799606b",
+      "name": "feat(error-messages): added deck creation errors",
+      "description": "J'ai mis beaucoup de temps à cette étape car je me suis dit que c'étais une des dernières étapes donc je voulais la finir pour de bon. Le message d'erreur pour l'unicité du titre n'est toujours pas fini.",
+      "date": "2026-03-04T15:15:00.000Z",
+      "duration": 120,
+      "status": "WIP",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }
