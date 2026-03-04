@@ -14,14 +14,14 @@
       </div>
 
       <div class="start-button-container">
-        <a href="" class="btn btn-start">
+        <a href="{{ route('deck.exercise', { id: deck.id }) }}" class="btn btn-start">
           C'est parti
         </a>
       </div>
     </div>
 
     <div class="exercise-info">
-      <p class="card-count">67 carte dans ce deck</p>
+      <p class="card-count"> {{ cards.length }} cartes dans ce deck</p>
     </div>
   </div>
 @endcomponent

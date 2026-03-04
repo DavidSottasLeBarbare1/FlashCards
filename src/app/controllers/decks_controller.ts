@@ -42,6 +42,7 @@ export default class DecksController {
     //Findes the deck to show
     const deck = await Deck.query().where('id', params.id).firstOrFail()
 
+    //Finds the cards to show
     const cards = await Card.query().where('deckId', params.id).orderBy('created_at', 'asc')
 
     // View calling
@@ -96,11 +97,40 @@ mis à jour avec succès !`
     return response.redirect().toRoute('deck.show', { id: deck.id })
   }
 
-  async start({ view }: HttpContext) {
+  async start({ params, view }: HttpContext) {
     //Finds the deck to start
-    const deck = await Deck.query().orderBy('title', 'asc')
+    const deck = await Deck.findOrFail(params.id)
+
+    //Finds the cards to show
+    const cards = await Card.query().where('deckId', params.id).orderBy('created_at', 'asc')
 
     // View calling
-    return view.render('pages/deck/start', { title: "Ajout d'un deck", deck })
+    return view.render('pages/deck/start', { title: "Ajout d'un deck", deck, cards })
+  }
+
+  async exercise({ params, view }: HttpContext) {
+    //Finds the deck to start
+    const deck = await Deck.findOrFail(params.id)
+
+    //Finds the cards to exercise
+    const cards = await Card.query().where('deckId', params.id).orderBy('created_at', 'asc')
+
+    // View calling
+    return view.render('pages/deck/exercise', { title: "Exercise d'un deck", deck, cards })
+  }
+
+  async finish({ params, view, request }: HttpContext) {
+
+    //Finds the deck to start
+    const deck = await Deck.findOrFail(params.id)
+
+    //Finds the cards tab
+    const cards = await Card.query().where('deckId', params.id).orderBy('created_at', 'asc')
+
+    //Extracts the correct and wrong variable from the query string in the call of the route
+    const { correct, wrong } = request.qs()
+
+    // View calling
+    return view.render('pages/deck/finish', { title: "Résultat de l'éxercise ", deck, correct, wrong, cards})
   }
 }

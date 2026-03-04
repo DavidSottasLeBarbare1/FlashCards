@@ -1,0 +1,92 @@
+@component('components/layout', { title: 'Exercer ' + deck.title })
+  <div class="exercise-session">
+    <div class="flashcard-container">
+      <div class="flashcard-exercise" id="flashcard">
+        <div class="flashcard-face flashcard-front">
+          <span class="flashcard-side-label">Question</span>
+          <div class="flashcard-content">
+            <p class="flashcard-text" id="questionText"></p>
+          </div>
+        </div>
+        <div class="flashcard-face flashcard-back">
+          <span class="flashcard-side-label">Réponse</span>
+          <div class="flashcard-content">
+            <p class="flashcard-text" id="answerText"></p>
+          </div>
+        </div>
+      </div>
+      <p class="flip-hint" id="flipHint">Cliquez sur la carte pour voir la réponse</p>
+    </div>
+
+    <div class="exercise-actions" id="exerciseActions" style="display: none;">
+      <button class="btn btn-wrong" id="btnWrong">Faux</button>
+      <button class="btn btn-correct" id="btnCorrect">Juste</button>
+    </div>
+  </div>
+
+  <script>
+    //Transform the cards array to string
+    const cards = {{{ JSON.stringify(cards) }}};
+    let currentCardIndex = 0;
+    let isFlipped = false;
+    let correctCount = 0;
+    let wrongCount = 0;
+
+    const flashcard = document.getElementById('flashcard');
+    const questionText = document.getElementById('questionText');
+    const answerText = document.getElementById('answerText');
+    const flipHint = document.getElementById('flipHint');
+    const exerciseActions = document.getElementById('exerciseActions');
+    const btnWrong = document.getElementById('btnWrong');
+    const btnCorrect = document.getElementById('btnCorrect');
+
+    function loadCard(index) {
+
+      //If there is no more cards left, call the finish route with query string "parameters"
+      if (index >= cards.length) {
+        window.location.href = `{{ route('deck.finish', { id: deck.id }) }}?correct=${correctCount}&wrong=${wrongCount}`;
+        return;
+      }
+
+      //Extract the card to exerce
+      const card = cards[index];
+
+      //Extracts the card information
+      questionText.textContent = card.question;
+      answerText.textContent = card.answer;
+      
+      //Resets the flashcard back to normal
+      flashcard.classList.remove('is-flipped');
+      isFlipped = false;
+      exerciseActions.style.display = 'none';
+      flipHint.textContent = 'Cliquez sur la carte pour voir la réponse';
+    }
+
+    //Checks if the flashcard is clicked to flip it 
+    flashcard.addEventListener('click', function() {
+      if (!isFlipped) {
+        flashcard.classList.add('is-flipped');
+        isFlipped = true;
+        exerciseActions.style.display = 'flex';
+        flipHint.textContent = 'Évaluez votre réponse';
+      }
+    });
+
+    //Checks if the button "Correct" is clicked
+    btnCorrect.addEventListener('click', function() {
+      correctCount++;
+      currentCardIndex++;
+      loadCard(currentCardIndex);
+    });
+
+    //Checks if the button "Wrong" is clicked
+    btnWrong.addEventListener('click', function() {
+      wrongCount++;
+      currentCardIndex++;
+      loadCard(currentCardIndex);
+    });
+
+    //Load the card by default
+    loadCard(0);
+  </script>
+@endcomponent

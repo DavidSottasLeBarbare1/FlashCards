@@ -1,0 +1,38 @@
+@component('components/layout', { title: 'Résultats' })
+  <div class="finish-container">
+    <div class="finish-header">
+      <h1>Vous avez exercé le deck</h1>
+      <h2 class="deck-title-finish">{{ deck.title }}</h2>
+      <p class="mode-info">en mode basique</p>
+    </div>
+
+    <div class="results-summary">
+      <div class="result-card">
+        <div class="result-icon">✓</div>
+        <div class="result-label">Justes</div>
+        <div class="result-value correct">{{ correct }}</div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="result-card">
+        <div class="result-icon">✗</div>
+        <div class="result-label">Fausses</div>
+        <div class="result-value wrong">{{ wrong }}</div>
+      </div>
+    </div>
+
+    <div class="results-text">
+      <p>Votre résultat: {{ correct }}/{{ cards.length }}</p>
+    </div>
+
+    <div class="finish-actions">
+      <a href="{{ route('deck.start', { id: deck.id }) }}" class="btn btn-secondary">
+        Recommencer
+      </a>
+      <a href="{{ route('home') }}" class="btn btn-primary">
+        OK
+      </a>
+    </div>
+  </div>
+@endcomponent
