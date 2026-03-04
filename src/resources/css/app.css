@@ -243,9 +243,9 @@ label {
 }
 
 .alert-success {
-  background-color: #fef5f8;
-  border: 1px solid #ffccd5;
-  color: #8b4557;
+  background-color: #bcff90;
+  border: 1px solid #94c573;
+  color: #005f28;
 }
 
 .alert-danger {

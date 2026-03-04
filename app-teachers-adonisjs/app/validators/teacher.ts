@@ -3,7 +3,7 @@ const teacherValidator = vine.compile(
  vine.object({
  // Utilisation d'un enum pour le genre
  gender: vine.enum(['woman', 'man', 'other'] as const),
- firstname: vine.string().trim().minLength(2),
+ firstname: vine.string().trim().minLength(2).unique({ table: 'teachers', column: 'firstname'}),
  lastname: vine.string().trim().minLength(2),
  nickname: vine.string().trim().minLength(2),
  origine: vine.string().trim().minLength(2),

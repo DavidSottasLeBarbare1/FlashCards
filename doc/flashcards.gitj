@@ -287,6 +287,29 @@
       "duration": 12,
       "status": "Done",
       "author": "DavidSottasLeBarbare1"
+    },
+    {
+      "id": "f4ee809e-bd65-4cd8-bc17-71fe05384205",
+      "type": "commitpatch",
+      "sha": "698d4d4a544c0990540219e3be7388e136ccc91e",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/698d4d4a544c0990540219e3be7388e136ccc91e",
+      "name": "feat(deck): added deck exercising",
+      "description": "J'ai mis beaucoup de temps à faire cette étape car dans exercise.edge j'appelais le client avant que le serveur puisse répondre",
+      "date": "2026-03-04T12:32:00.000Z",
+      "duration": 60,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
+    },
+    {
+      "id": "4c02e34b-4f23-46bb-a232-cbfac0cfe324",
+      "type": "commitless",
+      "name": "Revue",
+      "description": "J'ai regarder les user-stories que j'ai déjà accomplis afin d'avoir une idée de ce qu'il me reste à faire",
+      "date": "2026-03-04T12:52:00.000Z",
+      "duration": 21,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1"
     }
   ]
 }

@@ -16,7 +16,7 @@ export default class DecksController {
   async store({ request, session, response }: HttpContext) {
     // Validate user entered data
     const { title, description } = await request.validateUsing(deckValidator)
-
+    
     // New deck creation
     const deck = await Deck.create({
       title,

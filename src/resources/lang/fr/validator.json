@@ -1,0 +1,13 @@
+{
+ "shared": {
+ "fields": {
+ "title": "Titre"
+ },
+ "messages": {
+ "required": "Le champ {field} est obligatoire.",
+ "minLength": "Le champ {field} doit contenir au moins { min } caractères.",
+ "email": "Le champ doit {field} être une adresse e-mail valide.",
+ "unique": "Le champ {field} doit être unique"
+ }
+ }
+}
