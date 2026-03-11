@@ -3,28 +3,41 @@ import { deckValidator } from '#validators/deck'
 import type { HttpContext } from '@adonisjs/core/http'
 import Card from '#models/flashcard'
 import db from '@adonisjs/lucid/services/db'
+import { errors } from '@vinejs/vine'
+
 export default class DecksController {
   // Display the list of decks
   async index({ view }: HttpContext) {
     // Retrieve the list of decks and the amount of card in each one
-    const decks = await Deck.query().select('*').select(db.from('flashcards').whereRaw('flashcards.deck_id = decks.id').count('*').as('nbrOfCards'))
+    const decks = await Deck.query()
+      .select('*')
+      .select(
+        db.from('flashcards').whereRaw('flashcards.deck_id = decks.id').count('*').as('nbrOfCards')
+      )
 
-    //Counts the number of cards inside the deck
     return view.render('pages/home', { decks })
   }
 
   async store({ request, session, response }: HttpContext) {
     // Validate user entered data
     const { title, description } = await request.validateUsing(deckValidator)
-    
-    // New deck creation
-    const deck = await Deck.create({
-      title,
-      description,
-    })
 
+    try {
+      // New deck creation
+      await Deck.create({
+        title,
+        description,
+      })
+    } catch {
+      throw new errors.E_VALIDATION_ERROR([
+        {
+          message: 'Le deck ' + title + ' existe déjà.',
+          field: 'title',
+        },
+      ])
+    }
     // Flashing message
-    session.flash('success', `Le nouveau deck ${deck.title} a été ajouté avec succès !`)
+    session.flash('success', `Le nouveau deck ${title} a été ajouté avec succès !`)
 
     // Redirecting to home
     return response.redirect().toRoute('home')
@@ -79,12 +92,20 @@ export default class DecksController {
     // Finds the deck to update
     const deck = await Deck.findOrFail(params.id)
 
+    try {
     // Updates the deck
     deck.merge({
       title,
       description,
     })
-
+    } catch {
+      throw new errors.E_VALIDATION_ERROR([
+        {
+          message: 'Le deck ' + title + ' existe déjà.',
+          field: 'title',
+        },
+      ])
+    }
     const deckUpdated = await deck.save()
 
     // Flashing message
@@ -120,7 +141,6 @@ mis à jour avec succès !`
   }
 
   async finish({ params, view, request }: HttpContext) {
-
     //Finds the deck to start
     const deck = await Deck.findOrFail(params.id)
 
@@ -131,6 +151,12 @@ mis à jour avec succès !`
     const { correct, wrong } = request.qs()
 
     // View calling
-    return view.render('pages/deck/finish', { title: "Résultat de l'éxercise ", deck, correct, wrong, cards})
+    return view.render('pages/deck/finish', {
+      title: "Résultat de l'éxercise ",
+      deck,
+      correct,
+      wrong,
+      cards,
+    })
   }
 }

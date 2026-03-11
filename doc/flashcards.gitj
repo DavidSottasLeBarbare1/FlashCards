@@ -323,6 +323,19 @@
       "status": "WIP",
       "author": "DavidSottasLeBarbare1",
       "patch": true
+    },
+    {
+      "id": "121dc16c-7ecf-4dbd-96d7-b4a0f5fd3d4b",
+      "type": "commitpatch",
+      "sha": "5cdf028f57dcee805302b701e5a0e1409109afe0",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/5cdf028f57dcee805302b701e5a0e1409109afe0",
+      "name": "feat(error-messages): added card creation errors",
+      "description": "Il faut toujours fixer le message d'unicité",
+      "date": "2026-03-04T15:29:00.000Z",
+      "duration": 14,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }

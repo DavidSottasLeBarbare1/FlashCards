@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
 
       // Title field
-      table.string('title').notNullable()
+      table.string('title').notNullable().unique()
       
       // Description field
       table.string('description')

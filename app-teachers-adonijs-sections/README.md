@@ -1,0 +1,2 @@
+----- FlashCards ----- 
+Uses Adonisjs framework

@@ -24,6 +24,9 @@ export default class extends BaseSchema {
 
       table.timestamp('created_at').notNullable()
       table.timestamp('updated_at').nullable()
+
+      //Make sure that each question is unique in its deck
+      table.unique(['question', 'deck_id'])
     })
   }
 

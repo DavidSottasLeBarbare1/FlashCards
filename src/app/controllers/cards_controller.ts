@@ -2,9 +2,10 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Card from '#models/flashcard'
 import Deck from '#models/deck'
 import { cardValidator } from '#validators/card'
+import { errors } from '@vinejs/vine'
+
 export default class CardsController {
   async create({ view, params }: HttpContext) {
-
     //Finds the card to create
     const card = await Card.query().orderBy('question', 'asc')
 
@@ -13,23 +14,28 @@ export default class CardsController {
     //Fetching the deck
     const deck = await Deck.findOrFail(deckId)
 
-    
     // View calling
     return view.render('pages/card/create', { deckId, deck })
   }
 
   async store({ request, response, session, params }: HttpContext) {
-
     // Validate user entered data
     const { question, answer } = await request.validateUsing(cardValidator)
-
-    // New card creation
-    await Card.create({
-      question,
-      answer,
-      deckId: params.deckId,
-    })
-
+    try {
+      // New card creation
+      await Card.create({
+        question,
+        answer,
+        deckId: params.deckId,
+      })
+    } catch {
+      throw new errors.E_VALIDATION_ERROR([
+        {
+          message: 'Cette question existe déjà dans ce deck.',
+          field: 'question',
+        },
+      ])
+    }
     // Flashing message
     session.flash('success', `La nouvelle carte a été ajouté avec succès !`)
 
@@ -38,7 +44,6 @@ export default class CardsController {
   }
 
   async destroy({ params, session, response }: HttpContext) {
-
     // Finds the deck to delete
     const card = await Card.findOrFail(params.id)
 
@@ -53,13 +58,12 @@ export default class CardsController {
   }
 
   async edit({ params, view }: HttpContext) {
-
     // Finds the card to update
     const card = await Card.findOrFail(params.id)
 
     //Fetching the deck
     const deck = await Deck.findOrFail(params.deckId)
-    
+
     // View calling
     return view.render('pages/card/edit.edge', {
       title: 'Modifier une carte',
@@ -69,7 +73,6 @@ export default class CardsController {
   }
 
   async update({ params, request, session, response }: HttpContext) {
-
     // Validate user entered data
     const { question, answer } = await request.validateUsing(cardValidator)
 
@@ -93,6 +96,4 @@ mis à jour avec succès !`
     // Redirecting to deck.show
     return response.redirect().toRoute('deck.show', { id: params.deckId })
   }
-
-  
 }
