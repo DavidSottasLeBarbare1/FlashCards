@@ -24,3 +24,8 @@ L’IA a également produit environ 95 % du style de mon site ainsi que la major
 Cependant, l’entièreté de la logique du site ainsi que tout le code JavaScript ont été entièrement réalisés par moi-même. Ce sont donc des éléments que j’ai conçus et développés personnellement. Je serais également capable d’expliquer tout le code fourni par l’IA, ainsi que bien sûr le code que j’ai écrit moi-même.
 
 Je ne pense pas avoir utilisé l’IA d’une manière qui me rendrait dépendant. Je suis convaincu que, si on me le demande, je pourrais refaire ce projet depuis le début sans son aide. L’intelligence artificielle a seulement été utilisée pour des tâches que je considère comme laborieuses, mais qui restent tout à fait réalisables manuellement.
+
+### Conclusion
+Le projet était intéressant et m'a bien appris la notion de MVC et des requète http. AdonisJS est un framework compliqué à prendre en main mais facile à manipuler dès qu'on commence à bien comprendre les notions de bases.
+
+David Sottas

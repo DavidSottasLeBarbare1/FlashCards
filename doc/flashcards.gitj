@@ -336,6 +336,32 @@
       "status": "Done",
       "author": "DavidSottasLeBarbare1",
       "patch": true
+    },
+    {
+      "id": "f18cd19a-ae4b-4ad5-8fca-951f5d1bd0ac",
+      "type": "commitpatch",
+      "sha": "9a082d0013b69f2c4f1fb41af02f121f9fcf8c7d",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/9a082d0013b69f2c4f1fb41af02f121f9fcf8c7d",
+      "name": "feat(card-deletion): added card deletion",
+      "description": "Les cartes étant dans un decks, cela rend la manipulation de celles-ci plus compliqué",
+      "date": "2026-02-25T13:22:00.000Z",
+      "duration": 41,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
+    },
+    {
+      "id": "8dea3657-246f-482d-9432-9bf5bc715035",
+      "type": "commitpatch",
+      "sha": "35214add4df423cd4f09b5ef4c1a3df36315320f",
+      "url": "https://github.com/DavidSottasLeBarbare1/FlashCards/commit/35214add4df423cd4f09b5ef4c1a3df36315320f",
+      "name": "feat(card-modification): added card modification",
+      "description": "Les cartes étant dans un decks, cela rend la manipulation de celles-ci plus compliqué",
+      "date": "2026-02-25T14:32:00.000Z",
+      "duration": 39,
+      "status": "Done",
+      "author": "DavidSottasLeBarbare1",
+      "patch": true
     }
   ]
 }
